@@ -1,0 +1,1426 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>传送门游戏下载 - 官方品牌站,创意解谜影像社区</title>
+<meta name="description" content="传送门游戏下载官方网站，专注创意解谜与空间逻辑类游戏的内容品牌，汇聚原创攻略、深度评测与创作者社区，持续为用户提供高品质正版内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121b2b'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23ff7a3d' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23ff7a3d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --pg-bg:#0e131f;
+  --pg-bg-soft:#141c2c;
+  --pg-card:#192334;
+  --pg-card2:#1f2b3f;
+  --pg-line:rgba(255,255,255,.09);
+  --pg-txt:#e8edf6;
+  --pg-txt-dim:#9aa8bf;
+  --pg-acc:#ff7a3d;
+  --pg-acc-soft:#ffb27a;
+  --pg-cyan:#3ddad7;
+  --pg-glow:rgba(255,122,61,.25);
+  --pg-radius:16px;
+  --pg-sticky:96px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  background:var(--pg-bg);
+  color:var(--pg-txt);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+section{scroll-margin-top:var(--pg-sticky)}
+.pg-wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ---------- 公告条 ---------- */
+.pg-notice{
+  background:linear-gradient(90deg,#2a1a12,#3a2318 55%,#2a1a12);
+  border-bottom:1px solid rgba(255,122,61,.28);
+  font-size:13px;
+}
+.pg-notice .pg-wrap{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;overflow:hidden;white-space:nowrap;
+}
+.pg-notice-tag{
+  flex:none;background:var(--pg-acc);color:#1a0f08;font-weight:700;
+  font-size:11px;letter-spacing:.12em;padding:2px 9px;border-radius:20px;
+}
+.pg-notice-txt{
+  color:#f0d2bd;overflow:hidden;text-overflow:ellipsis;
+}
+.pg-notice-txt b{color:#ffcfae;font-weight:600}
+.pg-notice-more{margin-left:auto;flex:none;color:var(--pg-acc-soft);font-size:12px;border-bottom:1px dashed rgba(255,178,122,.5)}
+.pg-sticky-shell{position:sticky;top:0;z-index:80}
+
+/* ---------- 页头 ---------- */
+.pg-header{
+  background:rgba(14,19,31,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--pg-line);
+}
+.pg-header-inner{
+  display:flex;align-items:center;gap:22px;padding:14px 0;
+}
+.pg-logo{display:flex;align-items:center;gap:10px;flex:none}
+.pg-logo-mark{
+  width:38px;height:38px;border-radius:11px;flex:none;
+  background:radial-gradient(circle at 32% 30%,#ff9d63,#ff7a3d 60%,#c94f1c);
+  display:grid;place-items:center;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 6px 18px var(--pg-glow);
+}
+.pg-logo-mark span{
+  width:14px;height:14px;border:3px solid #1a0f08;border-radius:50%;display:block;
+}
+.pg-logo-txt{display:flex;flex-direction:column;line-height:1.15}
+.pg-logo-txt strong{font-size:17px;letter-spacing:.02em}
+.pg-logo-txt small{font-size:10px;color:var(--pg-txt-dim);letter-spacing:.24em}
+.pg-nav{display:flex;gap:4px;margin-left:6px;flex:1}
+.pg-nav a{
+  font-size:14px;color:var(--pg-txt-dim);padding:7px 12px;border-radius:9px;
+  transition:.22s;
+}
+.pg-nav a:hover,.pg-nav a.active{color:#fff;background:rgba(255,122,61,.14)}
+.pg-head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.pg-search{position:relative;display:flex;align-items:center}
+.pg-search input{
+  width:180px;background:var(--pg-bg-soft);border:1px solid var(--pg-line);
+  color:var(--pg-txt);border-radius:10px;padding:8px 34px 8px 12px;font-size:13px;
+  outline:none;transition:.25s;
+}
+.pg-search input:focus{border-color:var(--pg-acc);width:220px;box-shadow:0 0 0 3px rgba(255,122,61,.14)}
+.pg-search input::placeholder{color:#63718a}
+.pg-search button{
+  position:absolute;right:6px;width:24px;height:24px;display:grid;place-items:center;
+  color:var(--pg-txt-dim);border-radius:6px;
+}
+.pg-search button:hover{color:var(--pg-acc)}
+.pg-search-msg{
+  position:absolute;top:calc(100% + 8px);right:0;width:240px;
+  background:var(--pg-card2);border:1px solid var(--pg-line);border-radius:10px;
+  padding:9px 12px;font-size:12px;color:var(--pg-txt-dim);
+  opacity:0;pointer-events:none;transform:translateY(-4px);transition:.22s;z-index:60;
+}
+.pg-search-msg.show{opacity:1;transform:none}
+.pg-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border-radius:10px;font-size:14px;font-weight:600;padding:9px 18px;transition:.24s;
+}
+.pg-btn-primary{
+  background:linear-gradient(135deg,#ff8d52,#f2662a);color:#20100a;
+  box-shadow:0 8px 22px rgba(242,102,42,.28);
+}
+.pg-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(242,102,42,.42)}
+.pg-btn-ghost{border:1px solid var(--pg-line);color:var(--pg-txt)}
+.pg-btn-ghost:hover{border-color:var(--pg-acc);color:var(--pg-acc-soft)}
+.pg-burger{display:none;width:38px;height:38px;border:1px solid var(--pg-line);border-radius:9px;flex-direction:column;justify-content:center;align-items:center;gap:4px}
+.pg-burger i{display:block;width:16px;height:2px;background:var(--pg-txt);border-radius:2px;transition:.25s}
+.pg-burger.open i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.pg-burger.open i:nth-child(2){opacity:0}
+.pg-burger.open i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.pg-mobile-nav{display:none;border-top:1px solid var(--pg-line);background:var(--pg-bg-soft)}
+.pg-mobile-nav.open{display:block}
+.pg-mobile-nav a{display:block;padding:12px 22px;font-size:14px;color:var(--pg-txt-dim);border-bottom:1px solid var(--pg-line)}
+.pg-mobile-nav a:last-child{border-bottom:none}
+
+/* ---------- 首屏 ---------- */
+.pg-hero{position:relative;padding:64px 0 78px;overflow:hidden}
+.pg-hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(560px 380px at 82% 8%,rgba(255,122,61,.22),transparent 70%),
+    radial-gradient(480px 340px at 6% 88%,rgba(61,218,215,.14),transparent 72%);
+}
+.pg-hero-grid-ring{
+  position:absolute;right:-110px;top:-60px;width:520px;height:520px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.06);z-index:0;
+}
+.pg-hero-grid-ring::after{
+  content:"";position:absolute;inset:70px;border-radius:50%;
+  border:1px dashed rgba(255,122,61,.18);
+}
+.pg-hero-inner{
+  position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;
+}
+.pg-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.16em;
+  color:var(--pg-acc-soft);border:1px solid rgba(255,122,61,.35);
+  padding:5px 13px;border-radius:30px;background:rgba(255,122,61,.08);margin-bottom:22px;
+}
+.pg-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pg-acc);box-shadow:0 0 0 4px rgba(255,122,61,.18)}
+.pg-hero h1{
+  font-size:clamp(38px,5.2vw,62px);line-height:1.1;letter-spacing:-.02em;
+  font-weight:800;margin-bottom:20px;
+}
+.pg-hero h1 em{
+  font-style:normal;
+  background:linear-gradient(120deg,#ffb27a,#ff7a3d 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.pg-hero-lead{color:var(--pg-txt-dim);font-size:15.5px;max-width:520px;margin-bottom:12px}
+.pg-hero-intro{
+  font-size:14px;color:#8695ae;max-width:540px;margin-bottom:28px;
+  padding-left:14px;border-left:2px solid rgba(255,122,61,.4);
+}
+.pg-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.pg-hero-stats{display:flex;gap:38px;flex-wrap:wrap}
+.pg-stat-num{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.01em}
+.pg-stat-num b{color:var(--pg-acc);font-weight:800}
+.pg-stat-label{font-size:12px;color:var(--pg-txt-dim);letter-spacing:.06em}
+.pg-hero-visual{position:relative}
+.pg-hero-cover{
+  border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);position:relative;
+}
+.pg-hero-cover img{width:100%;height:auto}
+.pg-hero-badge{
+  position:absolute;left:18px;top:18px;display:flex;align-items:center;gap:6px;
+  background:rgba(12,17,26,.78);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:5px 12px;font-size:11.5px;color:#ffd7bd;
+}
+.pg-hero-badge i{width:7px;height:7px;border-radius:50%;background:#5ef07a;display:block;box-shadow:0 0 0 3px rgba(94,240,122,.2)}
+.pg-hero-float{
+  position:absolute;bottom:-26px;left:-26px;
+  background:var(--pg-card2);border:1px solid var(--pg-line);border-radius:14px;
+  padding:13px 17px;display:flex;gap:12px;align-items:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.5);max-width:250px;
+}
+.pg-hero-float-num{font-size:22px;font-weight:800;color:var(--pg-cyan);line-height:1}
+.pg-hero-float-txt{font-size:12px;color:var(--pg-txt-dim);line-height:1.5}
+
+/* ---------- 通用 section 头 ---------- */
+.pg-section{padding:72px 0}
+.pg-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.pg-sec-eyebrow{font-size:12px;letter-spacing:.22em;color:var(--pg-acc);margin-bottom:10px;font-weight:600}
+.pg-sec-title{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.pg-sec-desc{font-size:14px;color:var(--pg-txt-dim);max-width:460px}
+.pg-link-more{font-size:13.5px;color:var(--pg-acc-soft);border-bottom:1px dashed rgba(255,178,122,.45);padding-bottom:2px;white-space:nowrap}
+
+/* ---------- 深度解析（骨架中的长文） ---------- */
+.pg-about{
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0));
+  border-top:1px solid var(--pg-line);border-bottom:1px solid var(--pg-line);
+}
+.pg-about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:start}
+.pg-about-aside{
+  position:sticky;top:calc(var(--pg-sticky) + 24px);
+}
+.pg-about-aside h2{font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.3;margin-bottom:16px}
+.pg-about-aside p{color:var(--pg-txt-dim);font-size:14px;margin-bottom:18px}
+.pg-about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.pg-chip{
+  font-size:12px;padding:5px 12px;border-radius:30px;
+  border:1px solid var(--pg-line);color:var(--pg-txt-dim);background:rgba(255,255,255,.03);
+}
+.pg-about-body p{font-size:14.5px;color:#aab7cc;margin-bottom:16px;text-align:justify}
+.pg-about-body h3{font-size:17px;color:#fff;margin:26px 0 10px;padding-left:12px;border-left:3px solid var(--pg-acc)}
+.pg-about-quote{
+  background:var(--pg-card);border:1px solid var(--pg-line);border-left:3px solid var(--pg-cyan);
+  border-radius:0 12px 12px 0;padding:14px 18px;font-size:14px;color:#c6d3e6;margin:22px 0;
+}
+
+/* ---------- 焦点内容 ---------- */
+.pg-focus-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px}
+.pg-feature-main{
+  position:relative;border-radius:var(--pg-radius);overflow:hidden;
+  border:1px solid var(--pg-line);background:var(--pg-card);
+  display:flex;flex-direction:column;
+}
+.pg-feature-main img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:.4s}
+.pg-feature-main:hover img{transform:scale(1.03)}
+.pg-feature-body{padding:22px 24px 24px}
+.pg-tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pg-tag{font-size:11.5px;color:var(--pg-acc-soft);background:rgba(255,122,61,.12);border:1px solid rgba(255,122,61,.24);padding:2px 10px;border-radius:20px}
+.pg-tag.cyan{color:#8ef2f0;background:rgba(61,218,215,.1);border-color:rgba(61,218,215,.24)}
+.pg-feature-body h3{font-size:20px;font-weight:700;margin-bottom:9px;line-height:1.4}
+.pg-feature-body p{font-size:13.5px;color:var(--pg-txt-dim);margin-bottom:16px}
+.pg-meta{display:flex;align-items:center;gap:14px;font-size:12px;color:#6f7f99;flex-wrap:wrap}
+.pg-meta .pg-author{display:flex;align-items:center;gap:7px;color:#b7c4d8}
+.pg-avatar{
+  width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-size:11px;font-weight:700;color:#0e131f;
+}
+.pg-feature-side{display:grid;grid-template-rows:repeat(2,1fr);gap:22px}
+.pg-mini-card{
+  display:grid;grid-template-columns:132px 1fr;gap:0;
+  border:1px solid var(--pg-line);border-radius:var(--pg-radius);overflow:hidden;
+  background:var(--pg-card);transition:.25s;
+}
+.pg-mini-card:hover{border-color:rgba(255,122,61,.4);transform:translateY(-2px)}
+.pg-mini-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
+.pg-mini-info{padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.pg-mini-info h4{font-size:14.5px;font-weight:700;line-height:1.4}
+.pg-mini-info span{font-size:12px;color:var(--pg-txt-dim)}
+
+/* ---------- 视频流 ---------- */
+.pg-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.pg-filter{
+  font-size:13px;padding:6px 15px;border-radius:30px;border:1px solid var(--pg-line);
+  color:var(--pg-txt-dim);transition:.22s;
+}
+.pg-filter:hover{color:#fff;border-color:rgba(255,122,61,.45)}
+.pg-filter.active{background:var(--pg-acc);color:#1a0f08;border-color:var(--pg-acc);font-weight:700}
+.pg-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pg-video-card{
+  background:var(--pg-card);border:1px solid var(--pg-line);border-radius:var(--pg-radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.28s;
+}
+.pg-video-card:hover{transform:translateY(-4px);border-color:rgba(255,122,61,.38);box-shadow:0 18px 38px rgba(0,0,0,.42)}
+.pg-thumb{position:relative;overflow:hidden}
+.pg-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s}
+.pg-video-card:hover .pg-thumb img{transform:scale(1.05)}
+.pg-thumb-time{
+  position:absolute;right:9px;bottom:9px;font-size:11px;background:rgba(8,12,19,.82);
+  padding:1px 7px;border-radius:5px;color:#dfe7f3;
+}
+.pg-thumb-label{
+  position:absolute;left:9px;top:9px;font-size:10.5px;letter-spacing:.06em;
+  background:rgba(255,122,61,.92);color:#1a0f08;font-weight:700;padding:2px 8px;border-radius:5px;
+}
+.pg-video-body{padding:15px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pg-video-body h3{font-size:14.5px;font-weight:700;line-height:1.45}
+.pg-video-body p{font-size:12.5px;color:var(--pg-txt-dim);flex:1}
+.pg-video-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid var(--pg-line);font-size:12px;color:#71819b}
+.pg-actions{display:flex;gap:12px}
+.pg-icon-btn{display:inline-flex;align-items:center;gap:4px;color:#8496b0;transition:.2s;font-size:12px}
+.pg-icon-btn:hover{color:var(--pg-acc-soft)}
+.pg-icon-btn.liked{color:#ff7a3d}
+.pg-icon-btn.saved{color:var(--pg-cyan)}
+
+/* ---------- 专题 ---------- */
+.pg-topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pg-topic{
+  position:relative;border-radius:var(--pg-radius);overflow:hidden;border:1px solid var(--pg-line);
+  min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:18px;transition:.3s;
+}
+.pg-topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.5s}
+.pg-topic::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,14,22,.15),rgba(10,14,22,.9))}
+.pg-topic:hover img{transform:scale(1.07)}
+.pg-topic:hover{border-color:rgba(255,122,61,.5)}
+.pg-topic>*{position:relative;z-index:2}
+.pg-topic-state{font-size:10.5px;letter-spacing:.1em;color:var(--pg-cyan);margin-bottom:6px}
+.pg-topic h3{font-size:16px;font-weight:700;margin-bottom:5px}
+.pg-topic p{font-size:12px;color:#a9b6ca}
+
+/* ---------- 创作者 ---------- */
+.pg-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pg-creator{
+  background:linear-gradient(180deg,var(--pg-card2),var(--pg-card));
+  border:1px solid var(--pg-line);border-radius:var(--pg-radius);padding:22px 18px;
+  text-align:center;transition:.28s;position:relative;overflow:hidden;
+}
+.pg-creator:hover{transform:translateY(-4px);border-color:rgba(61,218,215,.4)}
+.pg-creator-av{
+  width:60px;height:60px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;
+  font-size:22px;font-weight:800;color:#0e131f;
+}
+.pg-creator h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.pg-creator-role{font-size:11.5px;color:var(--pg-acc-soft);margin-bottom:9px}
+.pg-creator p{font-size:12px;color:var(--pg-txt-dim);min-height:52px;margin-bottom:10px}
+.pg-creator-nums{display:flex;justify-content:center;gap:16px;font-size:11.5px;color:#71819b;border-top:1px solid var(--pg-line);padding-top:11px}
+.pg-creator-nums b{color:#dfe7f3;font-weight:700}
+
+/* ---------- 影像墙 ---------- */
+.pg-wall{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.pg-wall-item{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--pg-line);transition:.28s}
+.pg-wall-item img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.pg-wall-item:hover img{transform:scale(1.07)}
+.pg-wall-item span{
+  position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;font-size:11.5px;color:#e7eef9;
+  background:linear-gradient(180deg,transparent,rgba(8,12,19,.88));opacity:0;transition:.25s;
+}
+.pg-wall-item:hover span{opacity:1}
+.pg-wall-a{grid-column:span 4;aspect-ratio:4/3}
+.pg-wall-b{grid-column:span 3;aspect-ratio:1/1}
+.pg-wall-c{grid-column:span 2;aspect-ratio:3/4}
+.pg-wall-d{grid-column:span 5;aspect-ratio:16/9}
+
+/* ---------- 评论 ---------- */
+.pg-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pg-review{
+  background:var(--pg-card);border:1px solid var(--pg-line);border-radius:var(--pg-radius);
+  padding:20px;position:relative;transition:.25s;
+}
+.pg-review:hover{border-color:rgba(255,255,255,.2);background:var(--pg-card2)}
+.pg-review-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.pg-review-top .pg-avatar{width:34px;height:34px;font-size:13px}
+.pg-review-name{font-size:13.5px;font-weight:600}
+.pg-review-tag{font-size:11px;color:var(--pg-txt-dim)}
+.pg-review p{font-size:13px;color:#a9b6ca;margin-bottom:12px}
+.pg-review-foot{font-size:11.5px;color:#66758f;display:flex;justify-content:space-between}
+.pg-stars{color:var(--pg-acc);letter-spacing:2px;font-size:12px}
+
+/* ---------- FAQ ---------- */
+.pg-faq{max-width:860px;margin:0 auto}
+.pg-faq details{
+  border:1px solid var(--pg-line);border-radius:12px;background:var(--pg-card);
+  padding:0;margin-bottom:12px;overflow:hidden;transition:.22s;
+}
+.pg-faq details[open]{border-color:rgba(255,122,61,.4);background:var(--pg-card2)}
+.pg-faq summary{
+  padding:16px 20px;font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.pg-faq summary::-webkit-details-marker{display:none}
+.pg-faq summary::after{content:"+";font-size:19px;color:var(--pg-acc);transition:.25s;font-weight:400}
+.pg-faq details[open] summary::after{transform:rotate(45deg)}
+.pg-faq-inner{padding:0 20px 18px;font-size:13.5px;color:var(--pg-txt-dim)}
+
+/* ---------- 动态/更新日志 ---------- */
+.pg-log-list{display:flex;flex-direction:column;gap:0;border-left:2px solid rgba(255,122,61,.25);padding-left:24px;margin-left:6px}
+.pg-log-item{position:relative;padding:0 0 26px}
+.pg-log-item:last-child{padding-bottom:0}
+.pg-log-item::before{
+  content:"";position:absolute;left:-31px;top:6px;width:10px;height:10px;border-radius:50%;
+  background:var(--pg-bg);border:2px solid var(--pg-acc);
+}
+.pg-log-date{font-size:11.5px;letter-spacing:.08em;color:var(--pg-acc-soft);margin-bottom:5px}
+.pg-log-item h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.pg-log-item p{font-size:13px;color:var(--pg-txt-dim)}
+
+/* ---------- 合作 ---------- */
+.pg-partner-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.pg-partner{
+  border:1px solid var(--pg-line);border-radius:12px;background:rgba(255,255,255,.02);
+  padding:18px 10px;text-align:center;font-size:12.5px;color:var(--pg-txt-dim);transition:.22s;
+}
+.pg-partner:hover{color:#fff;border-color:rgba(61,218,215,.4);background:rgba(61,218,215,.05)}
+
+/* ---------- 联系/投稿 ---------- */
+.pg-contact{
+  background:linear-gradient(120deg,rgba(255,122,61,.12),rgba(61,218,215,.07) 60%,rgba(255,255,255,.02));
+  border-top:1px solid var(--pg-line);border-bottom:1px solid var(--pg-line);
+}
+.pg-contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.pg-contact h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.3;margin-bottom:14px}
+.pg-contact p{color:var(--pg-txt-dim);font-size:14px;margin-bottom:22px}
+.pg-contact-actions{display:flex;gap:12px;flex-wrap:wrap}
+.pg-contact-card{
+  background:rgba(14,19,31,.65);border:1px solid var(--pg-line);border-radius:var(--pg-radius);
+  padding:26px;backdrop-filter:blur(8px);
+}
+.pg-contact-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dashed var(--pg-line);font-size:13.5px}
+.pg-contact-row:last-child{border-bottom:none}
+.pg-contact-row span:first-child{color:var(--pg-txt-dim)}
+.pg-contact-row span:last-child{color:#e2eaf6;font-weight:600}
+
+/* ---------- 页脚 ---------- */
+.pg-footer{background:#0a0f18;border-top:1px solid var(--pg-line);padding:56px 0 28px}
+.pg-footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:38px;margin-bottom:40px}
+.pg-footer-brand p{font-size:13px;color:var(--pg-txt-dim);margin:14px 0 16px;max-width:320px}
+.pg-footer-col h4{font-size:13px;color:#fff;margin-bottom:14px;letter-spacing:.06em}
+.pg-footer-col a{display:block;font-size:12.5px;color:var(--pg-txt-dim);padding:4px 0;transition:.2s}
+.pg-footer-col a:hover{color:var(--pg-acc-soft)}
+.pg-footer-bottom{
+  border-top:1px solid var(--pg-line);padding-top:22px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:#5f6e87;
+}
+
+/* ---------- 回到顶部 ---------- */
+.pg-top{
+  position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:12px;
+  background:var(--pg-card2);border:1px solid var(--pg-line);color:var(--pg-acc);
+  display:grid;place-items:center;font-size:17px;z-index:90;
+  opacity:0;pointer-events:none;transform:translateY(10px);transition:.28s;
+}
+.pg-top.show{opacity:1;pointer-events:auto;transform:none}
+.pg-top:hover{background:var(--pg-acc);color:#1a0f08}
+
+/* ---------- Toast / 弹窗 ---------- */
+.pg-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);
+  background:#232f45;border:1px solid rgba(255,122,61,.4);color:#ffe2cd;
+  font-size:13px;padding:10px 20px;border-radius:30px;z-index:200;
+  opacity:0;pointer-events:none;transition:.28s;box-shadow:0 14px 34px rgba(0,0,0,.5);
+}
+.pg-toast.show{opacity:1;transform:translate(-50%,0)}
+.pg-modal-mask{
+  position:fixed;inset:0;background:rgba(6,9,15,.72);backdrop-filter:blur(4px);
+  z-index:150;display:grid;place-items:center;padding:22px;
+  opacity:0;pointer-events:none;transition:.25s;
+}
+.pg-modal-mask.show{opacity:1;pointer-events:auto}
+.pg-modal{
+  width:min(520px,100%);background:var(--pg-card);border:1px solid var(--pg-line);
+  border-radius:18px;padding:26px;position:relative;transform:translateY(14px);transition:.28s;
+  max-height:86vh;overflow:auto;
+}
+.pg-modal-mask.show .pg-modal{transform:none}
+.pg-modal h3{font-size:18px;margin-bottom:6px}
+.pg-modal-sub{font-size:12.5px;color:var(--pg-txt-dim);margin-bottom:16px}
+.pg-modal label{display:block;font-size:12.5px;color:var(--pg-txt-dim);margin:12px 0 6px}
+.pg-modal input,.pg-modal textarea{
+  width:100%;background:var(--pg-bg-soft);border:1px solid var(--pg-line);
+  border-radius:9px;padding:9px 12px;color:var(--pg-txt);font-size:13px;outline:none;font-family:inherit;
+}
+.pg-modal input:focus,.pg-modal textarea:focus{border-color:var(--pg-acc)}
+.pg-modal textarea{resize:vertical;min-height:88px}
+.pg-modal-close{
+  position:absolute;right:14px;top:12px;width:30px;height:30px;border-radius:8px;
+  display:grid;place-items:center;color:var(--pg-txt-dim);font-size:17px;
+}
+.pg-modal-close:hover{background:rgba(255,255,255,.08);color:#fff}
+.pg-modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.pg-share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.pg-share-item{
+  border:1px solid var(--pg-line);border-radius:10px;padding:14px 8px;text-align:center;
+  font-size:12.5px;color:var(--pg-txt-dim);transition:.22s;
+}
+.pg-share-item:hover{border-color:var(--pg-acc);color:var(--pg-acc-soft);background:rgba(255,122,61,.07)}
+.pg-share-item b{display:block;font-size:17px;margin-bottom:4px;color:#dfe7f3}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .pg-hero-inner{grid-template-columns:1fr;gap:44px}
+  .pg-about-grid{grid-template-columns:1fr;gap:30px}
+  .pg-about-aside{position:static}
+  .pg-focus-grid{grid-template-columns:1fr}
+  .pg-video-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-review-grid{grid-template-columns:repeat(2,1fr)}
+  .pg-partner-grid{grid-template-columns:repeat(3,1fr)}
+  .pg-contact-grid{grid-template-columns:1fr;gap:30px}
+  .pg-footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:760px){
+  :root{--pg-sticky:64px}
+  .pg-nav,.pg-head-tools .pg-search,.pg-head-tools .pg-btn-ghost{display:none}
+  .pg-burger{display:flex}
+  .pg-header-inner{padding:11px 0;gap:14px}
+  .pg-notice .pg-wrap{padding:7px 0}
+  .pg-notice-more{display:none}
+  .pg-hero{padding:44px 0 60px}
+  .pg-hero-float{left:10px;bottom:-20px;max-width:220px}
+  .pg-video-grid{grid-template-columns:1fr}
+  .pg-topic-grid{grid-template-columns:1fr}
+  .pg-creator-grid{grid-template-columns:1fr}
+  .pg-review-grid{grid-template-columns:1fr}
+  .pg-mini-card{grid-template-columns:110px 1fr}
+  .pg-wall-a,.pg-wall-b,.pg-wall-c,.pg-wall-d{grid-column:span 12;aspect-ratio:16/10}
+  .pg-hero-stats{gap:24px}
+  .pg-section{padding:52px 0}
+  .pg-sec-head{margin-bottom:26px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== 吸顶壳：公告条 + 页头 ===== -->
+<div class="pg-sticky-shell">
+  <div class="pg-notice">
+    <div class="pg-wrap">
+      <span class="pg-notice-tag">官方发布</span>
+      <span class="pg-notice-txt">官方新增 <b>《空间折跃者》第七赛季地图包</b> 已上线，同时开放「传送门游戏下载」创作者激励计划第 3 期报名通道。</span>
+      <a class="pg-notice-more" href="#pg-news">查看全部动态 →</a>
+    </div>
+  </div>
+
+  <header class="pg-header">
+    <div class="pg-wrap pg-header-inner">
+      <a class="pg-logo" href="#pg-home">
+        <span class="pg-logo-mark"><span></span></span>
+        <span class="pg-logo-txt">
+          <strong>传送门</strong>
+          <small>PORTAL LAB</small>
+        </span>
+      </a>
+      <nav class="pg-nav" aria-label="主导航">
+        <a href="#pg-home" class="active">首页</a>
+        <a href="#pg-focus">焦点内容</a>
+        <a href="#pg-topics">专题企划</a>
+        <a href="#pg-creators">创作者</a>
+        <a href="#pg-news">企业动态</a>
+        <a href="#pg-faq">帮助</a>
+        <a href="#pg-contact">联系</a>
+      </nav>
+      <div class="pg-head-tools">
+        <div class="pg-search">
+          <input id="pgSearchInput" type="text" placeholder="搜索攻略、创作者、专题" aria-label="站内搜索">
+          <button id="pgSearchBtn" aria-label="搜索">🔍</button>
+          <div class="pg-search-msg" id="pgSearchMsg"></div>
+        </div>
+        <a class="pg-btn pg-btn-ghost" href="#pg-contact">投稿入口</a>
+        <button class="pg-btn pg-btn-primary" id="pgCopyBtn">分享官网</button>
+        <button class="pg-burger" id="pgBurger" aria-label="展开菜单" aria-expanded="false">
+          <i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+    <div class="pg-mobile-nav" id="pgMobileNav">
+      <a href="#pg-home">首页</a>
+      <a href="#pg-focus">焦点内容</a>
+      <a href="#pg-topics">专题企划</a>
+      <a href="#pg-creators">创作者</a>
+      <a href="#pg-news">企业动态</a>
+      <a href="#pg-faq">帮助</a>
+      <a href="#pg-contact">联系</a>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <!-- ===== 首屏 ===== -->
+  <section class="pg-hero" id="pg-home">
+    <div class="pg-hero-grid-ring" aria-hidden="true"></div>
+    <div class="pg-wrap pg-hero-inner">
+      <div class="pg-hero-copy">
+        <span class="pg-kicker">传送门品牌官方网站 · 企业级内容生态</span>
+        <h1>传送门<em>游戏下载</em></h1>
+        <p class="pg-hero-lead">专注空间解谜与创意物理玩法的视频内容品牌，用镜头拆解关卡逻辑，用影像记录每一次脑洞抵达出口的瞬间。</p>
+        <p class="pg-hero-intro">作为「传送门游戏下载」的官方网站运营方，我们以原创、正版、高清为内容底线，联合企业创作者与社区玩家共同构建可持续运营的解谜影像内容生态。</p>
+        <div class="pg-hero-actions">
+          <a class="pg-btn pg-btn-primary" href="#pg-videos">浏览精品内容</a>
+          <a class="pg-btn pg-btn-ghost" href="#pg-about">了解品牌故事</a>
+          <button class="pg-btn pg-btn-ghost" id="pgSubmitBtn">创作者投稿</button>
+        </div>
+        <div class="pg-hero-stats">
+          <div>
+            <div class="pg-stat-num"><b>2,180</b>+</div>
+            <div class="pg-stat-label">原创影像条目</div>
+          </div>
+          <div>
+            <div class="pg-stat-num"><b>36</b>万</div>
+            <div class="pg-stat-label">社区创作者关注</div>
+          </div>
+          <div>
+            <div class="pg-stat-num"><b>7</b>年</div>
+            <div class="pg-stat-label">持续运营时间</div>
+          </div>
+        </div>
+      </div>
+      <div class="pg-hero-visual">
+        <div class="pg-hero-cover">
+          <span class="pg-hero-badge"><i></i>正在直播 · 第七赛季地图拆解</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23182034'/%3E%3Cstop offset='0.55' stop-color='%232a1b2e'/%3E%3Cstop offset='1' stop-color='%23121828'/%3E%3C/linearGradient%3E%3CradialGradient id='g2' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23ff7a3d'/%3E%3Cstop offset='1' stop-color='%23ff7a3d' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23g1)'/%3E%3Ccircle cx='600' cy='225' r='170' fill='url(%23g2)' opacity='0.55'/%3E%3Cellipse cx='600' cy='225' rx='118' ry='118' fill='none' stroke='%23ff9d63' stroke-width='9'/%3E%3Cellipse cx='600' cy='225' rx='118' ry='118' fill='none' stroke='%233ddad7' stroke-width='3' stroke-dasharray='14 22'/%3E%3Ccircle cx='600' cy='225' r='40' fill='%230e131f' stroke='%23ffcfae' stroke-width='4'/%3E%3Crect x='70' y='300' width='250' height='12' rx='6' fill='%233ddad7' opacity='0.6'/%3E%3Crect x='70' y='330' width='170' height='12' rx='6' fill='%23ff7a3d' opacity='0.7'/%3E%3Crect x='70' y='360' width='210' height='10' rx='5' fill='%23ffffff' opacity='0.18'/%3E%3Crect x='70' y='120' width='200' height='26' rx='8' fill='%23ff7a3d' opacity='0.85'/%3E%3Ctext x='84' y='139' font-family='sans-serif' font-size='15' fill='%231a0f08' font-weight='700'%3ES07 · NEW MAP%3C/text%3E%3Cpath d='M300 200 L470 200 L470 176 L510 220 L470 264 L470 240 L300 240 Z' fill='%23ffffff' opacity='0.14'/%3E%3C/svg%3E" alt="传送门游戏下载第七赛季地图主视觉封面">
+        </div>
+        <div class="pg-hero-float">
+          <div class="pg-hero-float-num">98<span style="font-size:13px">%</span></div>
+          <div class="pg-hero-float-txt">社区用户对官方攻略内容的清晰度与实用性给出好评反馈</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 品牌深度解析 ===== -->
+  <section class="pg-section pg-about" id="pg-about">
+    <div class="pg-wrap pg-about-grid">
+      <div class="pg-about-aside">
+        <div class="pg-sec-eyebrow">品牌故事 · 深度解析</div>
+        <h2>一台传送枪，为什么值得被反复讲述</h2>
+        <p>「传送门游戏下载」不只是一个内容入口，而是一家以空间逻辑为母题的视频品牌企业。我们把玩家的通关经验、创作者的分镜思考、开发者的设计哲学放进同一个影像社区，让每一次点击都通向更清晰的理解。</p>
+        <div class="pg-about-chips">
+          <span class="pg-chip">垂直领域深耕</span>
+          <span class="pg-chip">原创正版</span>
+          <span class="pg-chip">高清品质</span>
+          <span class="pg-chip">社区共创</span>
+          <span class="pg-chip">用户至上</span>
+          <span class="pg-chip">行业领先</span>
+        </div>
+        <a class="pg-link-more" href="#pg-focus">查看焦点影像 ↓</a>
+      </div>
+      <div class="pg-about-body">
+        <p>如果要用一句话概括「传送门游戏下载」的品牌内核，那就是：把复杂的空间关系，讲成任何人都能看懂的画面。传送门这个母题天然具备强烈的视觉张力——两个圆圈，一条视线，一个被折叠的物理世界。它既考验玩家的逻辑推理，也考验创作者的叙事组织能力。因此从品牌创立的第一天起，我们就把内容品质放在流量之前，坚持用专业的分镜、清晰的口播与可靠的实测数据，去还原每一次「想通了」的瞬间。</p>
+        <h3>我们如何定义这个品牌的内容边界</h3>
+        <p>在官方网站的内容体系里，主创团队把内容划分为四条主线：深度测评线、攻略拆解线、创作者访谈线与社区共创线。深度测评线关注版本更新、物理引擎手感与关卡设计的合理性；攻略拆解线以分步影像的方式还原机关触发顺序；创作者访谈线邀请长期产出优质内容的作者聊他们的构图习惯与剪辑思路；社区共创线则开放投稿、投票与挑战活动，让普通玩家的巧思也能进入官方内容生态。这四条线彼此咬合，构成了我们所说的「内容生态」——不是单向输出，而是持续运营的循环。</p>
+        <div class="pg-about-quote">作为企业级品牌官网，我们始终相信：内容的真实与温暖，来自创作者对细节的诚实。一次机关顺序的错误标注，比一次更新延迟更伤害口碑。</div>
+        <h3>平台、创作者与用户的三方关系</h3>
+        <p>在「传送门游戏下载」的运营实践中，平台承担的不只是分发职责。我们为创作者提供脚本灵感库、标题建议工具、剪辑节奏模板与数据反馈看板，帮助作者把脑海中的关卡理解转化为结构完整的影像。同时，平台坚持原创与正版原则，所有上架内容都经过版权核验与画质抽检，确保用户看到的每一帧都值得信赖。对用户而言，这里是可以放心浏览的社区：没有夸张的诱导标题，只有清晰的标签体系、可追溯的创作者档案与开放的评价区。我们希望这个社区是包容的，新手可以提问，老玩家可以补充，观点不同也能在理性讨论中找到共识。</p>
+        <h3>持续运营背后的具体工作</h3>
+        <p>很多人以为品牌官网只是几页介绍，但对「传送门游戏下载」来说，官网是企业动态的首发地、是投稿规则的权威出处、也是社区活动的报名入口。我们每月更新内容白皮书摘要，每季度公布创作者激励计划的入选名单，每逢新赛季发布官方攻略合集。2026 年以来，团队完成了影像墙改版、评分体系升级与投稿流程精简三项工作，用户平均投稿审核时长从 6 天缩短到 2 天。这些看似琐碎的改进，构成了品牌口碑的真实来源。</p>
+        <h3>面向未来的方向</h3>
+        <p>未来一年，我们将继续在垂直领域深耕：一方面扩大创作者矩阵，扶持更多专注空间解谜题材的原创作者；另一方面探索视频与互动叙事的结合，让影像本身也能承载选择与分支。品牌的力量不在于一次爆发，而在于长期陪伴。我们希望当用户再次需要「传送门游戏下载」相关信息时，第一反应是回到这个官方网站，因为这里的信息足够准确、足够专业、也足够温暖。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 焦点内容 ===== -->
+  <section class="pg-section" id="pg-focus">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">焦点内容</div>
+          <h2 class="pg-sec-title">本期主编推荐</h2>
+          <p class="pg-sec-desc">由官方编辑部与社区评审共同挑选的三组影像，覆盖测评、攻略与幕后。</p>
+        </div>
+        <a class="pg-link-more" href="#pg-videos">全部内容 →</a>
+      </div>
+      <div class="pg-focus-grid">
+        <article class="pg-feature-main">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a2438'/%3E%3Cstop offset='0.5' stop-color='%23223a52'/%3E%3Cstop offset='1' stop-color='%23121a29'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23f1)'/%3E%3Cg opacity='0.9'%3E%3Crect x='120' y='120' width='180' height='180' rx='20' fill='none' stroke='%233ddad7' stroke-width='4'/%3E%3Crect x='500' y='150' width='180' height='180' rx='20' fill='none' stroke='%23ff7a3d' stroke-width='4'/%3E%3Ccircle cx='210' cy='210' r='42' fill='%233ddad7' opacity='0.55'/%3E%3Ccircle cx='590' cy='240' r='42' fill='%23ff7a3d' opacity='0.6'/%3E%3Cpath d='M255 210 C360 210 440 240 548 240' stroke='%23ffffff' stroke-width='5' stroke-dasharray='10 12' fill='none' opacity='0.7'/%3E%3C/g%3E%3Crect x='0' y='330' width='800' height='120' fill='%230a0f18' opacity='0.55'/%3E%3Ctext x='40' y='392' font-family='sans-serif' font-size='22' fill='%23ffffff' font-weight='700'%3E空间折跃者 · 第七赛季深度测评%3C/text%3E%3C/svg%3E" alt="空间折跃者第七赛季深度测评封面图">
+          <div class="pg-feature-body">
+            <div class="pg-tagrow">
+              <span class="pg-tag">深度测评</span>
+              <span class="pg-tag cyan">新赛季</span>
+              <span class="pg-tag">高清</span>
+            </div>
+            <h3>《空间折跃者》第七赛季：当重力方向成为可编辑的筹码</h3>
+            <p>编辑部用时 11 天完成全图实测，逐帧比对机关触发帧率与传送门落点判定，给出本次赛季最完整的手感与平衡性分析。</p>
+            <div class="pg-meta">
+              <span class="pg-author"><span class="pg-avatar" style="background:linear-gradient(135deg,#ffb27a,#ff7a3d)">测</span>测评组·老陈</span>
+              <span>2.4 万次播放</span>
+              <span>2026/11/15</span>
+            </div>
+          </div>
+        </article>
+        <div class="pg-feature-side">
+          <article class="pg-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231c2738'/%3E%3Cg stroke='%233ddad7' stroke-width='3' fill='none' opacity='0.85'%3E%3Cpath d='M40 140 L110 140 L110 80 L180 80'/%3E%3Cpath d='M180 80 L250 80 L250 40 L290 40'/%3E%3C/g%3E%3Ccircle cx='110' cy='140' r='9' fill='%23ff7a3d'/%3E%3Ccircle cx='250' cy='80' r='9' fill='%23ffb27a'/%3E%3Crect x='40' y='34' width='96' height='20' rx='6' fill='%23ff7a3d' opacity='0.8'/%3E%3C/svg%3E" alt="新手三十小时通关路径攻略封面">
+            <div class="pg-mini-info">
+              <h4>从零到出口：新手三十小时通关路径全解析</h4>
+              <span>攻略拆解 · 2.1 万播放</span>
+            </div>
+          </article>
+          <article class="pg-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23241827'/%3E%3Ccircle cx='90' cy='90' r='52' fill='none' stroke='%23ff7a3d' stroke-width='6' opacity='0.85'/%3E%3Ccircle cx='230' cy='90' r='52' fill='none' stroke='%233ddad7' stroke-width='6' opacity='0.85'/%3E%3Ccircle cx='160' cy='90' r='14' fill='%23ffe2cd'/%3E%3C/svg%3E" alt="创作者幕后访谈封面">
+            <div class="pg-mini-info">
+              <h4>创作者幕后：一位关卡设计师如何用镜头讲逻辑</h4>
+              <span>人物访谈 · 1.7 万播放</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 视频流 ===== -->
+  <section class="pg-section" id="pg-videos">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">热门视频流</div>
+          <h2 class="pg-sec-title">正在被反复浏览的影像</h2>
+          <p class="pg-sec-desc">标签筛选即时生效，点击卡片可查看详情；喜欢就点个赞，值得收藏就收进清单。</p>
+        </div>
+      </div>
+      <div class="pg-filters" id="pgFilters">
+        <button class="pg-filter active" data-filter="all">全部</button>
+        <button class="pg-filter" data-filter="测评">深度测评</button>
+        <button class="pg-filter" data-filter="攻略">攻略拆解</button>
+        <button class="pg-filter" data-filter="访谈">人物访谈</button>
+        <button class="pg-filter" data-filter="日常">创作日常</button>
+      </div>
+      <div class="pg-video-grid" id="pgVideoGrid">
+
+        <article class="pg-video-card" data-cat="测评">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='v1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23202c42'/%3E%3Cstop offset='1' stop-color='%23131b2a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23v1)'/%3E%3Cg stroke='%23ff7a3d' stroke-width='5' fill='none'%3E%3Crect x='70' y='60' width='120' height='150' rx='12'/%3E%3Crect x='290' y='60' width='120' height='150' rx='12' stroke='%233ddad7'/%3E%3C/g%3E%3Cpath d='M190 135 L290 135' stroke='%23ffffff' stroke-width='5' stroke-dasharray='8 10'/%3E%3Crect x='0' y='216' width='480' height='54' fill='%230a0f18' opacity='0.7'/%3E%3C/svg%3E" alt="机关延迟与落点判定实测封面">
+            <span class="pg-thumb-label">测评</span>
+            <span class="pg-thumb-time">18:42</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>机关延迟与落点判定：三套引擎设置的实测对比</h3>
+            <p>用同一段跑图路径测试不同画质档位下的物理反馈差异，结论可能和你想象的不一样。</p>
+            <div class="pg-video-foot">
+              <span>测评组·老陈</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>1,264</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pg-video-card" data-cat="攻略">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23151f30'/%3E%3Cg fill='none' stroke-width='4'%3E%3Cpath d='M40 220 L120 220 L120 150 L210 150' stroke='%233ddad7'/%3E%3Cpath d='M210 150 L300 150 L300 80 L380 80' stroke='%23ff7a3d'/%3E%3Cpath d='M380 80 L440 80' stroke='%23ffffff' stroke-opacity='0.4'/%3E%3C/g%3E%3Ccircle cx='120' cy='220' r='8' fill='%23ffb27a'/%3E%3Ccircle cx='300' cy='150' r='8' fill='%233ddad7'/%3E%3Ccircle cx='440' cy='80' r='8' fill='%23ffffff'/%3E%3Crect x='30' y='34' width='78' height='22' rx='6' fill='%233ddad7' opacity='0.85'/%3E%3C/svg%3E" alt="第四章镜像长廊通关路线图封面">
+            <span class="pg-thumb-label">攻略</span>
+            <span class="pg-thumb-time">12:05</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>第四章「镜像长廊」零失误通关：三处隐藏开关的触发顺序</h3>
+            <p>很多人卡在第三道门，其实问题不在手速，而在进入长廊前的那一次视线角度。</p>
+            <div class="pg-video-foot">
+              <span>攻略作者·南枝</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>2,038</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pg-video-card" data-cat="访谈">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23221a2b'/%3E%3Ccircle cx='240' cy='112' r='52' fill='%23ffb27a' opacity='0.85'/%3E%3Cpath d='M176 210 a64 46 0 0 1 128 0 Z' fill='%23ff7a3d' opacity='0.8'/%3E%3Crect x='130' y='226' width='220' height='10' rx='5' fill='%233ddad7' opacity='0.7'/%3E%3Ccircle cx='240' cy='112' r='70' fill='none' stroke='%23ffffff' stroke-opacity='0.2' stroke-width='2' stroke-dasharray='4 8'/%3E%3C/svg%3E" alt="关卡设计师林间访谈封面">
+            <span class="pg-thumb-label">访谈</span>
+            <span class="pg-thumb-time">26:18</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>访谈｜林间：我更喜欢先画空间，再想故事</h3>
+            <p>从业八年的关卡设计师聊创作习惯，他把草稿本上的方块称为「还没长出门的走廊」。</p>
+            <div class="pg-video-foot">
+              <span>品牌编辑部</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>986</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pg-video-card" data-cat="日常">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231b2a26'/%3E%3Cg fill='%23a8e6cf' opacity='0.75'%3E%3Crect x='56' y='72' width='112' height='14' rx='7'/%3E%3Crect x='56' y='102' width='86' height='14' rx='7'/%3E%3Crect x='56' y='132' width='130' height='14' rx='7'/%3E%3C/g%3E%3Crect x='270' y='56' width='152' height='160' rx='12' fill='none' stroke='%23ff7a3d' stroke-width='4'/%3E%3Cpath d='M292 176 L340 124 L378 158 L404 132' stroke='%23ffb27a' stroke-width='5' fill='none'/%3E%3Ccircle cx='320' cy='98' r='13' fill='%23ff7a3d'/%3E%3C/svg%3E" alt="剪辑台前的创作日常封面">
+            <span class="pg-thumb-label">日常</span>
+            <span class="pg-thumb-time">09:33</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>一条攻略视频的诞生：从草稿到成片的三天</h3>
+            <p>记录分镜、录制、补拍与调色的全流程，也包括那些最后被剪掉的两小时素材。</p>
+            <div class="pg-video-foot">
+              <span>创作者·阿岸</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>742</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pg-video-card" data-cat="测评">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23121b2b'/%3E%3Cg stroke='%233ddad7' stroke-width='4' fill='none' opacity='0.9'%3E%3Ccircle cx='120' cy='135' r='54'/%3E%3Ccircle cx='360' cy='135' r='54' stroke='%23ff7a3d'/%3E%3C/g%3E%3Crect x='186' y='126' width='108' height='18' rx='9' fill='%23ffb27a' opacity='0.8'/%3E%3Cpath d='M240 60 L240 96' stroke='%23ffffff' stroke-width='4' opacity='0.5'/%3E%3Cpath d='M240 210 L240 246' stroke='%23ffffff' stroke-width='4' opacity='0.3'/%3E%3C/svg%3E" alt="双门联动机制评测封面">
+            <span class="pg-thumb-label">测评</span>
+            <span class="pg-thumb-time">15:20</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>双门联动机制到底强不强？拆解三套主流联动方案</h3>
+            <p>把判定窗口拆成可量化的帧数，用数据回答「手感玄学」到底存不存在。</p>
+            <div class="pg-video-foot">
+              <span>测评组·老陈</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>1,509</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pg-video-card" data-cat="攻略">
+          <div class="pg-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231a2233'/%3E%3Cg fill='%23ff7a3d' opacity='0.9'%3E%3Crect x='60' y='60' width='60' height='60' rx='8'/%3E%3Crect x='60' y='150' width='60' height='60' rx='8' opacity='0.55'/%3E%3C/g%3E%3Cg fill='%233ddad7' opacity='0.9'%3E%3Crect x='360' y='60' width='60' height='60' rx='8'/%3E%3Crect x='360' y='150' width='60' height='60' rx='8' opacity='0.55'/%3E%3C/g%3E%3Cpath d='M120 90 L360 90 M120 180 L360 180' stroke='%23ffffff' stroke-width='3' stroke-dasharray='6 10' opacity='0.5'/%3E%3Ccircle cx='240' cy='135' r='30' fill='%23ffe2cd' opacity='0.85'/%3E%3C/svg%3E" alt="限时挑战赛路线攻略封面">
+            <span class="pg-thumb-label">攻略</span>
+            <span class="pg-thumb-time">07:58</span>
+          </div>
+          <div class="pg-video-body">
+            <h3>限时挑战赛 4 分 12 秒路线：少走两步就是全部答案</h3>
+            <p>路线优化思路比操作更重要，视频附上可复现的分段时间轴与关键转折点。</p>
+            <div class="pg-video-foot">
+              <span>攻略作者·南枝</span>
+              <div class="pg-actions">
+                <button class="pg-icon-btn pg-like"><span>♡</span><b>3,117</b></button>
+                <button class="pg-icon-btn pg-save"><span>☆</span><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 专题企划 ===== -->
+  <section class="pg-section" id="pg-topics" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">专题企划</div>
+          <h2 class="pg-sec-title">四条正在更新的内容线</h2>
+          <p class="pg-sec-desc">专题由官方编辑部发起，欢迎创作者报名参与共创，优秀作品将进入官网推荐位。</p>
+        </div>
+        <a class="pg-link-more" href="#pg-contact">报名参与 →</a>
+      </div>
+      <div class="pg-topic-grid">
+        <a class="pg-topic" href="#pg-videos">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23172429'/%3E%3Cg stroke='%233ddad7' stroke-width='4' fill='none' opacity='0.8'%3E%3Crect x='60' y='80' width='120' height='120' rx='14'/%3E%3Crect x='220' y='120' width='120' height='120' rx='14' stroke='%23ff7a3d'/%3E%3C/g%3E%3Cpath d='M180 140 L220 180' stroke='%23ffffff' stroke-width='5' stroke-dasharray='6 8'/%3E%3C/svg%3E" alt="新手友好攻略专题封面">
+          <div class="pg-topic-state">已更新 12 期 · 每周三</div>
+          <h3>新手友好计划</h3>
+          <p>把门槛降到最低，从视角控制讲到第一条通关路线。</p>
+        </a>
+        <a class="pg-topic" href="#pg-videos">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23271c24'/%3E%3Ccircle cx='200' cy='140' r='80' fill='none' stroke='%23ff7a3d' stroke-width='6'/%3E%3Ccircle cx='200' cy='140' r='34' fill='%23ffb27a' opacity='0.85'/%3E%3Crect x='80' y='240' width='240' height='12' rx='6' fill='%23ffffff' opacity='0.2'/%3E%3C/svg%3E" alt="空间叙事者访谈专题封面">
+          <div class="pg-topic-state">已更新 8 期 · 双周更新</div>
+          <h3>空间叙事者</h3>
+          <p>与设计师、剪辑师、玩家对谈，讨论空间如何承载情绪。</p>
+        </a>
+        <a class="pg-topic" href="#pg-videos">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23182034'/%3E%3Cg fill='%233ddad7' opacity='0.8'%3E%3Crect x='52' y='150' width='60' height='90' rx='6'/%3E%3Crect x='126' y='112' width='60' height='128' rx='6' opacity='0.7'/%3E%3Crect x='200' y='80' width='60' height='160' rx='6' opacity='0.55'/%3E%3Crect x='274' y='140' width='60' height='100' rx='6' opacity='0.4'/%3E%3C/g%3E%3Cpath d='M40 60 L360 60' stroke='%23ff7a3d' stroke-width='4' stroke-dasharray='10 12'/%3E%3C/svg%3E" alt="限时挑战赛影像专题封面">
+          <div class="pg-topic-state">赛季进行中 · 开放投稿</div>
+          <h3>限时挑战赛</h3>
+          <p>用最短路径回答同一道空间题，影像即答卷。</p>
+        </a>
+        <a class="pg-topic" href="#pg-videos">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231a2c'/%3E%3Cg fill='none' stroke-width='4'%3E%3Cpath d='M60 220 C120 120 200 240 260 120 C300 50 340 90 360 70' stroke='%23ff7a3d'/%3E%3C/g%3E%3Ccircle cx='260' cy='120' r='10' fill='%23ffe2cd'/%3E%3Ccircle cx='60' cy='220' r='10' fill='%233ddad7'/%3E%3C/svg%3E" alt="创作幕后纪实专题封面">
+          <div class="pg-topic-state">已更新 6 期 · 每月一集</div>
+          <h3>创作幕后纪实</h3>
+          <p>镜头之外，创作者如何取舍、重录与推翻自己。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 创作者矩阵 ===== -->
+  <section class="pg-section" id="pg-creators">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">创作者矩阵</div>
+          <h2 class="pg-sec-title">内容生态里的长期主义者</h2>
+          <p class="pg-sec-desc">点击头像可查看作者档案与代表作，他们都经过版权与原创核验。</p>
+        </div>
+      </div>
+      <div class="pg-creator-grid">
+
+        <div class="pg-creator">
+          <div class="pg-creator-av pg-creator-av-open" style="background:linear-gradient(135deg,#ffb27a,#ff7a3d)" data-name="老陈" data-role="深度测评主笔" data-desc="七年硬件与引擎测评经验，擅长把玄学手感拆成可量化的数据。">测</div>
+          <h3>老陈</h3>
+          <div class="pg-creator-role">深度测评主笔</div>
+          <p>坚持每期视频附上实测帧率表，拒绝「感觉流」结论。</p>
+          <div class="pg-creator-nums"><span>作品 <b>216</b></span><span>关注 <b>8.4万</b></span></div>
+        </div>
+
+        <div class="pg-creator">
+          <div class="pg-creator-av pg-creator-av-open" style="background:linear-gradient(135deg,#8ef2f0,#3ddad7)" data-name="南枝" data-role="攻略拆解作者" data-desc="专注路线优化与机关顺序还原，作品以分段时间轴清晰著称。">南</div>
+          <h3>南枝</h3>
+          <div class="pg-creator-role">攻略拆解作者</div>
+          <p>路线图手绘出身，喜欢在视频里留一张可截图保存的总览图。</p>
+          <div class="pg-creator-nums"><span>作品 <b>184</b></span><span>关注 <b>6.9万</b></span></div>
+        </div>
+
+        <div class="pg-creator">
+          <div class="pg-creator-av pg-creator-av-open" style="background:linear-gradient(135deg,#c9b6ff,#8a6cf0)" data-name="阿岸" data-role="创作日常记录者" data-desc="把剪辑过程本身拍成内容，记录一条片子被推倒重来的全过程。">岸</div>
+          <h3>阿岸</h3>
+          <div class="pg-creator-role">创作日常记录者</div>
+          <p>相信幕后比成片更有温度，镜头里常有未完成的草稿。</p>
+          <div class="pg-creator-nums"><span>作品 <b>132</b></span><span>关注 <b>4.2万</b></span></div>
+        </div>
+
+        <div class="pg-creator">
+          <div class="pg-creator-av pg-creator-av-open" style="background:linear-gradient(135deg,#ffe08a,#f0b429)" data-name="林间" data-role="关卡设计师 / 访谈嘉宾" data-desc="从业八年，主张先画空间结构再补叙事，作品以动线克制闻名。">林</div>
+          <h3>林间</h3>
+          <div class="pg-creator-role">关卡设计师</div>
+          <p>代表作《折叠回廊》系列，被社区称为「最会留白的关卡」。</p>
+          <div class="pg-creator-nums"><span>作品 <b>96</b></span><span>关注 <b>11.3万</b></span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 影像墙 ===== -->
+  <section class="pg-section" id="pg-wall">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">作品墙</div>
+          <h2 class="pg-sec-title">社区共创影像精选</h2>
+          <p class="pg-sec-desc">来自投稿通道的原创封面，尺寸各不相同，但都对空间有独特理解。</p>
+        </div>
+        <a class="pg-link-more" href="#pg-contact">我也要投稿 →</a>
+      </div>
+      <div class="pg-wall">
+        <figure class="pg-wall-item pg-wall-b">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23172233'/%3E%3Ccircle cx='200' cy='200' r='128' fill='none' stroke='%23ff7a3d' stroke-width='8'/%3E%3Ccircle cx='200' cy='200' r='64' fill='none' stroke='%233ddad7' stroke-width='4' stroke-dasharray='8 12'/%3E%3Ccircle cx='200' cy='200' r='18' fill='%23ffe2cd'/%3E%3C/svg%3E" alt="同心圆环影像作品封面">
+          <span>同心 · 社区作者 白露</span>
+        </figure>
+        <figure class="pg-wall-item pg-wall-d">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%2323192a'/%3E%3Crect x='60' y='60' width='240' height='240' rx='16' fill='none' stroke='%23ffb27a' stroke-width='5'/%3E%3Crect x='340' y='100' width='240' height='160' rx='16' fill='none' stroke='%233ddad7' stroke-width='5'/%3E%3Cpath d='M300 180 L340 180' stroke='%23ffffff' stroke-width='6' stroke-dasharray='6 8'/%3E%3C/svg%3E" alt="双通道空间结构影像封面">
+          <span>双通道 · 社区作者 灰塔</span>
+        </figure>
+        <figure class="pg-wall-item pg-wall-c">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Crect width='300' height='400' fill='%231b2a26'/%3E%3Cpath d='M60 340 L150 90 L240 340 Z' fill='none' stroke='%23a8e6cf' stroke-width='5'/%3E%3Ccircle cx='150' cy='300' r='24' fill='%23ff7a3d' opacity='0.85'/%3E%3C/svg%3E" alt="三角通道光影影像封面">
+          <span>三角 · 社区作者 归零</span>
+        </figure>
+        <figure class="pg-wall-item pg-wall-a">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 360'%3E%3Crect width='480' height='360' fill='%23201a30'/%3E%3Cg fill='%23c9b6ff' opacity='0.8'%3E%3Crect x='50' y='220' width='380' height='10' rx='5'/%3E%3Crect x='80' y='160' width='320' height='10' rx='5' opacity='0.6'/%3E%3Crect x='120' y='100' width='240' height='10' rx='5' opacity='0.4'/%3E%3C/g%3E%3Ccircle cx='240' cy='230' r='16' fill='%23ff7a3d'/%3E%3C/svg%3E" alt="阶梯回廊影像作品封面">
+          <span>阶梯 · 社区作者 拾光</span>
+        </figure>
+        <figure class="pg-wall-item pg-wall-b">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23131c2b'/%3E%3Cg stroke='%233ddad7' stroke-width='4' fill='none'%3E%3Cpath d='M80 80 L320 80 L320 320 L80 320 Z'/%3E%3Cpath d='M140 140 L260 140 L260 260 L140 260 Z' stroke='%23ff7a3d'/%3E%3C/g%3E%3Ccircle cx='200' cy='200' r='12' fill='%23ffe2cd'/%3E%3C/svg%3E" alt="嵌套方框影像作品封面">
+          <span>嵌套 · 社区作者 陆离</span>
+        </figure>
+        <figure class="pg-wall-item pg-wall-a">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 360'%3E%3Crect width='480' height='360' fill='%232a1e18'/%3E%3Cpath d='M40 300 C140 120 260 300 440 140' stroke='%23ffb27a' stroke-width='6' fill='none'/%3E%3Ccircle cx='40' cy='300' r='12' fill='%23ff7a3d'/%3E%3Ccircle cx='440' cy='140' r='12' fill='%233ddad7'/%3E%3Ccircle cx='240' cy='216' r='7' fill='%23ffffff' opacity='0.7'/%3E%3C/svg%3E" alt="折线轨迹影像作品封面">
+          <span>折线 · 社区作者 暮野</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 用户评价 ===== -->
+  <section class="pg-section" id="pg-reviews" style="background:linear-gradient(180deg,rgba(61,218,215,.03),transparent)">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">社区口碑</div>
+          <h2 class="pg-sec-title">来自用户的真实反馈</h2>
+          <p class="pg-sec-desc">评价区长期开放，我们保留所有理性批评，因为它们让内容更可靠。</p>
+        </div>
+      </div>
+      <div class="pg-review-grid">
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#ffb27a,#ff7a3d)">周</span>
+            <div><div class="pg-review-name">周野</div><div class="pg-review-tag">资深玩家 · 关注 3 年</div></div>
+          </div>
+          <p>攻略里把机关触发顺序标到帧，这点真的少见。按南枝的路线第一次就过了镜像长廊，省了我两个晚上的试错。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★★</span><span>2026/11/12</span></div>
+        </div>
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#8ef2f0,#3ddad7)">小</span>
+            <div><div class="pg-review-name">小满</div><div class="pg-review-tag">新手 · 关注 5 个月</div></div>
+          </div>
+          <p>新手友好计划帮了我大忙。以前看别的视频总觉得作者默认我什么都懂，这里会从视角控制讲起，很踏实。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★★</span><span>2026/11/09</span></div>
+        </div>
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#ffe08a,#f0b429)">M</span>
+            <div><div class="pg-review-name">Momo</div><div class="pg-review-tag">内容爱好者 · 关注 2 年</div></div>
+          </div>
+          <p>希望测评能再多一点低配置档位的测试，虽然现在写得很清楚，但用旧设备的用户可能还需要更细的对照。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★☆</span><span>2026/11/06</span></div>
+        </div>
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#c9b6ff,#8a6cf0)">阿</span>
+            <div><div class="pg-review-name">阿谦</div><div class="pg-review-tag">投稿作者 · 入选 2 次</div></div>
+          </div>
+          <p>投稿流程比我预想的顺，审核会给出具体修改建议而不是简单退回。第二次投稿就被官网推荐位收录，挺受鼓励。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★★</span><span>2026/11/03</span></div>
+        </div>
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#ffb27a,#ff7a3d)">老</span>
+            <div><div class="pg-review-name">老路</div><div class="pg-review-tag">社区用户 · 关注 4 年</div></div>
+          </div>
+          <p>品牌官网的信息比论坛靠谱多了，至少版本更新和活动报名时间都是准的，不用再到处翻帖子求证。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★★</span><span>2026/10/29</span></div>
+        </div>
+
+        <div class="pg-review">
+          <div class="pg-review-top">
+            <span class="pg-avatar" style="background:linear-gradient(135deg,#8ef2f0,#3ddad7)">晚</span>
+            <div><div class="pg-review-name">晚舟</div><div class="pg-review-tag">路人观众 · 关注 1 个月</div></div>
+          </div>
+          <p>本来是搜攻略点进来的，结果被创作者访谈留住了。林间那期关于「留白」的讨论挺有启发，不只是游戏的事。</p>
+          <div class="pg-review-foot"><span class="pg-stars">★★★★★</span><span>2026/10/25</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 企业动态 + 合作 ===== -->
+  <section class="pg-section" id="pg-news">
+    <div class="pg-wrap">
+      <div class="pg-sec-head">
+        <div>
+          <div class="pg-sec-eyebrow">企业动态 · 更新日志</div>
+          <h2 class="pg-sec-title">官方发布的近期变化</h2>
+          <p class="pg-sec-desc">品牌官网是企业信息的权威出处，所有活动与规则调整都在此同步。</p>
+        </div>
+        <a class="pg-link-more" href="#pg-faq">常见问题 →</a>
+      </div>
+      <div class="pg-log-list">
+        <div class="pg-log-item">
+          <div class="pg-log-date">2026 / 11 / 16</div>
+          <h3>创作者激励计划第 3 期开放报名</h3>
+          <p>面向专注空间解谜题材的原创作者，本期新增分镜辅导与设备支持名额，报名通道位于投稿入口页。</p>
+        </div>
+        <div class="pg-log-item">
+          <div class="pg-log-date">2026 / 11 / 10</div>
+          <h3>评分体系升级：新增「信息准确度」维度</h3>
+          <p>社区评分从三维扩展到四维，明确将机关顺序、版本适配等信息的准确性纳入评价，引导精品内容产出。</p>
+        </div>
+        <div class="pg-log-item">
+          <div class="pg-log-date">2026 / 10 / 28</div>
+          <h3>限时挑战赛秋季赛结果公示</h3>
+          <p>共收到 412 份影像投稿，经过原创核验与两轮评审，最终 24 份作品进入官网推荐位，感谢每一位参与者。</p>
+        </div>
+        <div class="pg-log-item">
+          <div class="pg-log-date">2026 / 10 / 12</div>
+          <h3>投稿审核流程精简，平均时长缩短至 2 天</h3>
+          <p>合并版权与画质两道检查环节，同时上线进度查询，创作者可随时了解作品所处阶段。</p>
+        </div>
+      </div>
+
+      <div style="margin-top:56px">
+        <div class="pg-sec-eyebrow">合作品牌 · 伙伴</div>
+        <h2 class="pg-sec-title" style="font-size:22px;margin-bottom:22px">与我们共同推动内容品质的伙伴</h2>
+        <div class="pg-partner-grid">
+          <div class="pg-partner">像素工坊</div>
+          <div class="pg-partner">南岸影像社</div>
+          <div class="pg-partner">逻辑盒子</div>
+          <div class="pg-partner">晨光剪辑室</div>
+          <div class="pg-partner">回声档案</div>
+          <div class="pg-partner">折线工作室</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="pg-section" id="pg-faq" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+    <div class="pg-wrap">
+      <div class="pg-sec-head" style="justify-content:center;text-align:center">
+        <div>
+          <div class="pg-sec-eyebrow">帮助中心</div>
+          <h2 class="pg-sec-title">关于「传送门游戏下载」的常见疑问</h2>
+        </div>
+      </div>
+      <div class="pg-faq">
+        <details open>
+          <summary>品牌官网和普通的内容聚合页有什么区别？</summary>
+          <div class="pg-faq-inner">官网由品牌团队直接运营，信息经过核验，更新节奏与官方活动同步；聚合页往往缺少版权与准确性把关。我们更在意长期口碑，而不是短期流量。</div>
+        </details>
+        <details>
+          <summary>投稿需要满足哪些基本要求？</summary>
+          <div class="pg-faq-inner">作品需为原创、画面清晰、与空间解谜题材相关，并附上简要的创作说明。审核会重点核查版权归属与信息准确性，通过后会通知上架时间。</div>
+        </details>
+        <details>
+          <summary>视频中的攻略数据会随版本变化吗？</summary>
+          <div class="pg-faq-inner">会。每次版本更新后，编辑部会标注受影响的内容并安排复查。若发现明显偏差，欢迎通过反馈入口告知，我们会尽快修正或加注说明。</div>
+        </details>
+        <details>
+          <summary>如何查看自己收藏的内容？</summary>
+          <div class="pg-faq-inner">在视频卡片上点击收藏后，按钮会变为已收藏状态。当前版本的收藏记录保存在本地，后续会开放账号同步功能，届时可跨设备查看。</div>
+        </details>
+        <details>
+          <summary>创作者激励计划的评选标准是什么？</summary>
+          <div class="pg-faq-inner">综合原创度、信息准确度、镜头表达与社区反馈四项。我们更看重持续产出与内容质量，而非单条爆款，这也是品牌长期坚持的价值观。</div>
+        </details>
+        <details>
+          <summary>可以申请成为官方合作伙伴吗？</summary>
+          <div class="pg-faq-inner">可以。请在联系区留言说明合作方向与既往作品，团队会在五个工作日内回复。我们欢迎影像机构、教育团队与独立工作室。</div>
+        </details>
+        <details>
+          <summary>遇到内容错误该怎么反馈？</summary>
+          <div class="pg-faq-inner">点击页面底部的「反馈」按钮，填写具体时间点与问题描述即可。编辑部会对确认无误的问题在 48 小时内响应。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 联系 / 投稿 ===== -->
+  <section class="pg-section pg-contact" id="pg-contact">
+    <div class="pg-wrap pg-contact-grid">
+      <div>
+        <div class="pg-sec-eyebrow">联系我们 · 投稿入口</div>
+        <h2>让你的通关思路，成为别人的出口</h2>
+        <p>无论你是长期创作者还是第一次投稿的新人，「传送门游戏下载」都欢迎你的影像。我们不追求数量，只希望每一条内容都对得起观众的注意力。</p>
+        <div class="pg-contact-actions">
+          <button class="pg-btn pg-btn-primary" id="pgSubmitBtn2">提交作品</button>
+          <button class="pg-btn pg-btn-ghost" id="pgFeedbackBtn">问题反馈</button>
+          <button class="pg-btn pg-btn-ghost" id="pgShareBtn">分享给同好</button>
+        </div>
+      </div>
+      <div class="pg-contact-card">
+        <div class="pg-contact-row"><span>品牌名称</span><span>传送门游戏下载 · 官方品牌站</span></div>
+        <div class="pg-contact-row"><span>运营主体</span><span>传送门内容科技（品牌企业）</span></div>
+        <div class="pg-contact-row"><span>合作邮箱</span><span>brand@portal-lab.example</span></div>
+        <div class="pg-contact-row"><span>投稿邮箱</span><span>submit@portal-lab.example</span></div>
+        <div class="pg-contact-row"><span>办公时间</span><span>周一至周五 10:00–19:00</span></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="pg-footer">
+  <div class="pg-wrap">
+    <div class="pg-footer-grid">
+      <div class="pg-footer-brand">
+        <a class="pg-logo" href="#pg-home">
+          <span class="pg-logo-mark"><span></span></span>
+          <span class="pg-logo-txt"><strong>传送门</strong><small>PORTAL LAB</small></span>
+        </a>
+        <p>传送门游戏下载官方网站，专注空间解谜题材的视频品牌。坚持原创、正版与高清品质，为创作者搭建值得信赖的内容生态。</p>
+        <span class="pg-chip">持续运营中 · 2026</span>
+      </div>
+      <div class="pg-footer-col">
+        <h4>内容</h4>
+        <a href="#pg-focus">焦点内容</a>
+        <a href="#pg-videos">热门视频流</a>
+        <a href="#pg-topics">专题企划</a>
+        <a href="#pg-wall">作品墙</a>
+      </div>
+      <div class="pg-footer-col">
+        <h4>品牌</h4>
+        <a href="#pg-about">品牌故事</a>
+        <a href="#pg-creators">创作者矩阵</a>
+        <a href="#pg-news">企业动态</a>
+        <a href="#pg-reviews">社区口碑</a>
+      </div>
+      <div class="pg-footer-col">
+        <h4>支持</h4>
+        <a href="#pg-faq">帮助中心</a>
+        <a href="#pg-contact">联系我们</a>
+        <a href="#pg-contact">投稿入口</a>
+        <a href="#pg-contact">合作洽谈</a>
+      </div>
+    </div>
+    <div class="pg-footer-bottom">
+      <span>© 2026 传送门游戏下载 官方网站 · 版权所有 · 品牌内容均为原创，转载请联系授权</span>
+      <span>备案号：京ICP备 2026000000 号 · 持续运营 · 用户至上</span>
+    </div>
+  </div>
+</footer>
+
+<button class="pg-top" id="pgBackTop" aria-label="回到顶部">↑</button>
+<div class="pg-toast" id="pgToast"></div>
+
+<!-- 通用弹窗 -->
+<div class="pg-modal-mask" id="pgModalMask">
+  <div class="pg-modal" role="dialog" aria-modal="true" aria-labelledby="pgModalTitle">
+    <button class="pg-modal-close" id="pgModalClose" aria-label="关闭">×</button>
+    <h3 id="pgModalTitle">标题</h3>
+    <div class="pg-modal-sub" id="pgModalSub"></div>
+    <div id="pgModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('pgToast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('pgBurger');
+  var mobileNav = document.getElementById('pgMobileNav');
+  burger.addEventListener('click', function(){
+    var open = mobileNav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  Array.prototype.forEach.call(mobileNav.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){
+      mobileNav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('pgSearchInput');
+  var searchBtn = document.getElementById('pgSearchBtn');
+  var searchMsg = document.getElementById('pgSearchMsg');
+  var msgTimer = null;
+  function doSearch(){
+    var q = searchInput.value.trim();
+    if(!q){
+      searchMsg.textContent = '试试输入「攻略」「林间」「第七赛季」等关键词';
+      searchMsg.classList.add('show');
+      clearTimeout(msgTimer);
+      msgTimer = setTimeout(function(){ searchMsg.classList.remove('show'); }, 2600);
+      return;
+    }
+    searchMsg.textContent = '已为你整理与「' + q + '」相关的原创内容，可在视频流中查看标签筛选结果';
+    searchMsg.classList.add('show');
+    clearTimeout(msgTimer);
+    msgTimer = setTimeout(function(){ searchMsg.classList.remove('show'); }, 3200);
+    document.getElementById('pg-videos').scrollIntoView({behavior:'smooth'});
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ doSearch(); }
+  });
+
+  /* 点赞 / 收藏 */
+  Array.prototype.forEach.call(document.querySelectorAll('.pg-like'), function(btn){
+    btn.addEventListener('click', function(){
+      var b = btn.querySelector('b');
+      var n = parseInt(b.textContent.replace(/,/g,''), 10) || 0;
+      var liked = btn.classList.toggle('liked');
+      btn.querySelector('span').textContent = liked ? '♥' : '♡';
+      b.textContent = liked ? (n + 1).toLocaleString() : (n - 1).toLocaleString();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.pg-save'), function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('saved');
+      var b = btn.querySelector('b');
+      b.textContent = saved ? '已收藏' : '收藏';
+      toast(saved ? '已加入收藏清单' : '已取消收藏');
+    });
+  });
+
+  /* 标签筛选 */
+  var filters = document.getElementById('pgFilters');
+  var cards = document.querySelectorAll('#pgVideoGrid .pg-video-card');
+  filters.addEventListener('click', function(e){
+    var btn = e.target.closest('.pg-filter');
+    if(!btn) return;
+    Array.prototype.forEach.call(filters.querySelectorAll('.pg-filter'), function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var f = btn.getAttribute('data-filter');
+    Array.prototype.forEach.call(cards, function(c){
+      var show = (f === 'all') || (c.getAttribute('data-cat') === f);
+      c.style.display = show ? '' : 'none';
+    });
+  });
+
+  /* 弹窗系统 */
+  var mask = document.getElementById('pgModalMask');
+  var mTitle = document.getElementById('pgModalTitle');
+  var mSub = document.getElementById('pgModalSub');
+  var mBody = document.getElementById('pgModalBody');
+  function openModal(title, sub, html){
+    mTitle.textContent = title;
+    mSub.textContent = sub || '';
+    mBody.innerHTML = html;
+    mask.classList.add('show');
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+  }
+  document.getElementById('pgModalClose').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){
+    if(e.target === mask){ closeModal(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeModal(); }
+  });
+
+  /* 作者档案弹窗 */
+  Array.prototype.forEach.call(document.querySelectorAll('.pg-creator-av-open'), function(av){
+    av.style.cursor = 'pointer';
+    av.addEventListener('click', function(){
+      var name = av.getAttribute('data-name');
+      var role = av.getAttribute('data-role');
+      var desc = av.getAttribute('data-desc');
+      openModal(name + ' 的作者档案', role,
+        '<p style="font-size:13.5px;color:#aab7cc;line-height:1.8">' + desc +
+        '</p><p style="font-size:13px;color:#8496b0;margin-top:12px">该作者长期参与「传送门游戏下载」官方内容生态，作品已通过原创与版权核验，可在视频流中查看代表作。</p>' +
+        '<div class="pg-modal-foot"><button class="pg-btn pg-btn-primary" id="pgFollowBtn">关注作者</button></div>');
+      var fb = document.getElementById('pgFollowBtn');
+      if(fb){ fb.addEventListener('click', function(){ toast('已关注 ' + name); closeModal(); }); }
+    });
+  });
+
+  /* 投稿弹窗 */
+  var submitHTML =
+    '<label>作品标题</label><input type="text" placeholder="例如：第五章回廊的三种走法">' +
+    '<label>联系方式</label><input type="text" placeholder="邮箱或常用社交账号">' +
+    '<label>创作说明</label><textarea placeholder="简述你的思路与亮点，便于审核团队理解"></textarea>' +
+    '<div class="pg-modal-foot"><button class="pg-btn pg-btn-ghost" id="pgSubmitCancel">取消</button>' +
+    '<button class="pg-btn pg-btn-primary" id="pgSubmitOk">提交作品</button></div>';
+  function bindSubmit(){
+    var ok = document.getElementById('pgSubmitOk');
+    var cancel = document.getElementById('pgSubmitCancel');
+    if(ok){ ok.addEventListener('click', function(){ closeModal(); toast('投稿已提交，审核团队将在 2 个工作日内反馈'); }); }
+    if(cancel){ cancel.addEventListener('click', closeModal); }
+  }
+  document.getElementById('pgSubmitBtn').addEventListener('click', function(){
+    openModal('创作者投稿', '投稿前请确认作品为原创，画面清晰，且与空间解谜题材相关。', submitHTML);
+    bindSubmit();
+  });
+  document.getElementById('pgSubmitBtn2').addEventListener('click', function(){
+    openModal('创作者投稿', '投稿前请确认作品为原创，画面清晰，且与空间解谜题材相关。', submitHTML);
+    bindSubmit();
+  });
+
+  /* 反馈弹窗 */
+  var feedbackBtn = document.getElementById('pgFeedbackBtn');
+  feedbackBtn.addEventListener('click', function(){
+    openModal('问题反馈', '如果你发现内容中的信息有误，欢迎指出具体位置。',
+      '<label>内容时间点</label><input type="text" placeholder="例如：12:05 附近">' +
+      '<label>问题描述</label><textarea placeholder="请描述你发现的问题"></textarea>' +
+      '<div class="pg-modal-foot"><button class="pg-btn pg-btn-primary" id="pgFbOk">提交反馈</button></div>');
+    var ok = document.getElementById('pgFbOk');
+    if(ok){ ok.addEventListener('click', function(){ closeModal(); toast('反馈已收到，编辑部将在 48 小时内核查'); }); }
+  });
+
+  /* 分享弹窗 */
+  function openShare(){
+    openModal('分享官网', '把「传送门游戏下载」官方网站分享给同样喜欢空间解谜的朋友。',
+      '<div class="pg-share-grid">' +
+      '<button class="pg-share-item" data-ch="微信"><b>微</b>微信</button>' +
+      '<button class="pg-share-item" data-ch="微博"><b>微</b>微博</button>' +
+      '<button class="pg-share-item" data-ch="QQ"><b>Q</b>QQ</button>' +
+      '</div><p style="font-size:12px;color:#8496b0;margin-top:14px">也可以通过页头「分享官网」按钮复制链接。</p>');
+    Array.prototype.forEach.call(document.querySelectorAll('.pg-share-item'), function(item){
+      item.addEventListener('click', function(){
+        var ch = item.getAttribute('data-ch');
+        closeModal();
+        toast('已生成' + ch + '分享卡片');
+      });
+    });
+  }
+  document.getElementById('pgShareBtn').addEventListener('click', openShare);
+
+  /* 复制链接 */
+  var copyBtn = document.getElementById('pgCopyBtn');
+  copyBtn.addEventListener('click', function(){
+    var link = window.location.href.split('#')[0];
+    function done(){ toast('官网链接已复制，可粘贴分享'); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(link).then(done).catch(function(){
+        toast('复制未成功，请手动分享当前页面');
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = link;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); done(); }
+      catch(err){ toast('复制未成功，请手动分享当前页面'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  /* 回到顶部 */
+  var backTop = document.getElementById('pgBackTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ backTop.classList.add('show'); }
+    else{ backTop.classList.remove('show'); }
+  }, {passive:true});
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 导航高亮 */
+  var navLinks = document.querySelectorAll('.pg-nav a');
+  var sections = ['pg-home','pg-focus','pg-topics','pg-creators','pg-news','pg-faq','pg-contact'];
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 150;
+    var current = 'pg-home';
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.offsetTop <= pos){ current = id; }
+    });
+    Array.prototype.forEach.call(navLinks, function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, {passive:true});
+
+})();
+</script>
+</body>
+  </html>
